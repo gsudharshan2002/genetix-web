@@ -1,15 +1,40 @@
+import React from 'react';
 
-const Aboutus = () => {
+export default function Aboutus() {
   return (
-    <section className="py-16 px-4">
-      <div className="max-w-4xl mx-auto text-center">
-        <h2 className="text-3xl font-bold mb-4">About Us</h2>
-        <p className="text-lg text-gray-700">
-          We are a team of passionate individuals committed to delivering the best solutions for our clients.
-        </p>
-      </div>
-    </section>
-  );
-};
+    <div className="bg-white py-16 px-8 lg:px-24">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        
+      
+        <div>
+          <h2 className="text-4xl font-bold mb-4 text-green-600">About Us</h2>
+          <p className="text-gray-700 text-lg mb-6">
+            We are a passionate group of students with extraordinary tech skills in web development,
+            backend systems (like n8n), automation, and freelancing services.
+          </p>
+          <p className="text-gray-700 text-lg mb-6">
+            Despite not being recognized by companies, we never gave up. Instead, we decided to use our
+            talent to help individuals and businesses with affordable and reliable tech solutions.
+          </p>
+          <h3 className="text-xl font-semibold text-purple-600 mt-6">Why Choose Us?</h3>
+          <ul className="list-disc list-inside text-gray-700 text-md mt-2 space-y-2">
+            <li>Our process includes 5 powerful phases: Architecture, Logic & Design, Comparison & Optimization, Testing, and Delivery.</li>
+            <li>We believe in simplicity and efficiency – using the least stack to do the most.</li>
+            <li>We constantly improve during testing to deliver the best product.</li>
+            <li>We manage, maintain, and deliver with care.</li>
+          </ul>
+          <div className="mt-6">
+            <button className="bg-gradient-to-r from-green-500 to-purple-500 text-white px-6 py-3 rounded-full shadow-md hover:scale-105 transition-transform duration-300">
+              Contact Us
+            </button>
+          </div>
+        </div>
 
-export default Aboutus;
+      
+        <div className="w-full h-80 bg-gray-200 rounded-lg shadow-md flex items-center justify-center">
+          <img src="./aboutus.jpg" alt="" />
+        </div>
+      </div>
+    </div>
+  );
+}

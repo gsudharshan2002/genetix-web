@@ -22,62 +22,81 @@ export const partnerLogos = [
 ];
 
 export const heros = [
-    {name:"Sudharshan G",role:"Founder Lead Developer",about:"the founder of genetix, a passionate developer with a vision to innovate healthcare through genetics.",image:"./sudharshanimg.png"},
-    {name: "Vicky", role: "Co-Founder", about:"a dedicated professional with a background in genetic research and a commitment to improving patient outcomes.", image: "/images/vicky.png"},
-    {name: "Muthu", role: "Co-Founder", about:"a visionary leader with extensive experience in healthcare management and a passion for advancing genetic therapies.", image: "/images/sanjay.png"},
-    {name: "Mohan", role: "Co-Founder", about:"a seasoned expert in genetic counseling with a focus on patient advocacy and support.", image: "/images/suresh.png"}
+  {
+    "name": "Sudharshan G",
+    "role": "Founder & Lead Architect",
+    "linkedIn": "https://www.linkedin.com/in/sudharshan-genetix/",
+    "about": "Visionary technologist leading Genetix with deep expertise in full-stack development and AI. Shapes product architecture, drives innovation, and defines core logic.",
+    "image": "./sudharshan.png"
+  },
+  {
+    "name": "Muthu",
+    "role": "Co-Founder & Systems Lead",
+    "linkedIn": "https://www.linkedin.com/in/muthu-genetix/",
+    "about": "Expert in healthcare systems and infrastructure. Oversees scalable backend, DevOps, and ensures secure and compliant architecture for Genetix platforms.",
+    "image": "/muthu.png"
+  },
+  {
+    "name": "Akash",
+    "role": "Test Engineer",
+    "linkedIn": "",
+    "about": "Experienced test engineer with 6 years of expertise in ensuring software quality and reliability. Specializes in automated and manual testing for robust application performance.",
+    "image": "/akash.png"
+  }
 ];
+
+
 
 export const services = [
    {
     title: "Web Development",
     description:
       "Design and develop fast, secure, and responsive websites using React, Next.js, or WordPress.",
-    image: "/images/web.jpg",
+    image: "/app-development.png",
   },
   {
     title: "Mobile App Development",
     description:
       "Build powerful cross-platform apps for Android and iOS using React Native and Flutter.",
-    image: "/images/mobile.jpg",
+    image: "/smartphone.png",
   },
   {
     title: "E-Commerce Platforms",
     description:
       "Launch feature-rich online stores with payment systems, admin panels, and scalable backends.",
-    image: "/images/ecommerce.jpg",
+    image: "/shopping.png",
   },
   {
     title: "UI/UX Design",
     description:
       "Create intuitive and attractive user interfaces with smooth user journeys and accessibility in mind.",
-    image: "/images/uiux.jpg",
+    image: "/ui.png",
   },
   {
     title: "Backend API Development",
     description:
       "Develop scalable RESTful APIs and microservices using Node.js, Golang, .NET Core, or Django.",
-    image: "/images/backend.jpg",
+    image: "/backend-coding.png",
   },
   {
     title: "Cloud & DevOps",
     description:
       "Deploy and monitor apps using AWS, Docker, Kubernetes, and CI/CD pipelines for faster delivery.",
-    image: "/images/cloud.jpg",
+    image: "/agile.png",
   },
 
-  // --- AI + Advanced Tech Services ---
+
   {
     title: "AI Chatbot Development",
     description:
       "Create smart conversational agents using OpenAI, Dialogflow, or Rasa to handle customer queries automatically.",
-    image: "/images/ai-chatbot.jpg",
+    image: "/bot.png",
   },
   {
     title: "Machine Learning Models",
     description:
       "Train and deploy custom ML models for prediction, classification, and recommendation systems.",
-    image: "/images/ml.jpg",
+    image: "/analysis.png",
   },
   {
     title: "NLP & Language Processing",

@@ -18,7 +18,9 @@ const Services = () => {
 
       cards.forEach((card, index) => {
         const cardCenter =
-          (card as HTMLElement).offsetLeft + (card as HTMLElement).offsetWidth / 2 - container.offsetLeft;
+          (card as HTMLElement).offsetLeft +
+          (card as HTMLElement).offsetWidth / 2 -
+          container.offsetLeft;
         const distance = Math.abs(center - cardCenter);
         if (distance < minDistance) {
           minDistance = distance;
@@ -35,33 +37,66 @@ const Services = () => {
   }, []);
 
   return (
-    <section className=" py-14 px-6">
+    <section className="py-14 mb-2 ">
       <h2 className="text-3xl font-bold text-center mb-10 text-gray-800">
         Our <span className="text-green-500">Services</span>
       </h2>
 
-      <div ref={scrollRef} className="overflow-x-auto scrollbar-hide py-4">
+      <div ref={scrollRef} className="overflow-x-auto scrollbar-hide py-6">
         <div className="flex gap-6 min-w-max px-1">
           {services.map((item, i) => (
             <div
               key={i}
-              className={`service-card w-[260px] flex-shrink-0 bg-white border border-gray-100 rounded-2xl shadow-sm transition-all duration-300 p-6 flex flex-col items-center text-center group ${
-                i === centerIndex
-                  ? "scale-105 shadow-lg z-10"
-                  : "scale-95 opacity-80"
+              className={`service-card transition-all duration-300 ease-in-out flex flex-col justify-between  p-8 w-80 rounded-3xl flex-shrink-0 shadow-md group bg-white hover:bg-black ${
+                centerIndex === i
+                  ? "scale-105 border-2 border-green-500 shadow-sm"
+                  : "scale-95" 
               }`}
             >
-              <div className="w-16 h-16 mb-4 rounded-full bg-green-50 flex items-center justify-center shadow-sm">
+            
+              <h5 className="group-hover:text-white text-xl font-extrabold mb-4 transition">
+                {item.title}
+              </h5>
+
+          
+              <div className="mb-4">
                 <img
-                  src={item.image}
                   alt={item.title}
-                  className="w-10 h-10 object-contain"
+                  loading="lazy"
+                  width="64"
+                  height="64"
+                  decoding="async"
+                  src={item.image}
+                  className="transition-transform duration-300 group-hover:scale-105"
+                  style={{ color: "transparent" }}
                 />
               </div>
-              <h4 className="text-lg font-semibold text-gray-800 mb-2">
-                {item.title}
-              </h4>
-              <p className="text-sm text-gray-600">{item.description}</p>
+
+              {/* Description */}
+              <p className="text-base font-medium text-gray-700 group-hover:text-white   transition-all">
+                {item.description}
+              </p>
+
+              {/* Learn More */}
+              <a
+                href="#"
+                className="mt-auto inline-flex items-center gap-2 text-blue-600 group-hover:text-white font-semibold transition"
+              >
+                Learn more
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true"
+                  className="w-5 h-5"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M9 6l6 6-6 6" />
+                </svg>
+              </a>
             </div>
           ))}
         </div>
