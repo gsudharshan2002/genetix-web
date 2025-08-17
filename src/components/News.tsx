@@ -1,5 +1,8 @@
+"use client";
+
 import { useState, useEffect } from "react";
 import { FaLocationPin, FaSpinner } from "react-icons/fa6";
+import { motion } from "framer-motion";
 
 const News = () => {
   interface NewsItem {
@@ -27,7 +30,6 @@ const News = () => {
     } finally {
       setLoading(false);
     }
-    
   };
 
   useEffect(() => {
@@ -35,7 +37,12 @@ const News = () => {
   }, []);
 
   return (
-    <section className="py-16 px-8 bg-gray-50">
+    <motion.section
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1 }}
+      className="py-16 px-8 bg-gray-50"
+    >
       <h1 className="text-3xl font-bold text-center mb-10 text-gray-800">
         Today's <span className="text-green-500">Tech</span> News
       </h1>
@@ -45,11 +52,13 @@ const News = () => {
       ) : loading ? (
         <FaSpinner className="animate-spin mx-auto text-2xl text-green-600" />
       ) : (
-        <div className="flex gap-7 overflow-x-auto py-6 scrollbar-hide ">
+        <div className="flex gap-7 overflow-x-auto py-6 scrollbar-hide">
           {news.map((item, i) => (
-            <div
+            <motion.div
               key={i}
-              className="min-w-[280px] max-w-[300px] bg-white rounded-xl shadow-md p-4 flex-shrink-0 space-y-2"
+              whileHover={{ scale: 1.03, boxShadow: "0px 8px 20px rgba(0,0,0,0.15)" }}
+              transition={{ duration: 0.3 }}
+              className="min-w-[280px] max-w-[300px] bg-white rounded-xl shadow-md p-4 flex-shrink-0 space-y-2 cursor-pointer"
             >
               <div className="relative h-48 w-full mb-4">
                 <img
@@ -77,11 +86,11 @@ const News = () => {
               >
                 Learn More
               </a>
-            </div>
+            </motion.div>
           ))}
         </div>
       )}
-    </section>
+    </motion.section>
   );
 };
 

@@ -1,5 +1,8 @@
+"use client";
+
 import { useRef, useEffect, useState } from "react";
 import { services } from "@/Data";
+import { motion } from "framer-motion";
 
 const Services = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -37,28 +40,30 @@ const Services = () => {
   }, []);
 
   return (
-    <section className="py-14 mb-2 ">
+    <section className="py-14 mb-2">
       <h2 className="text-3xl font-bold text-center mb-10 text-gray-800">
         Our <span className="text-green-500">Services</span>
       </h2>
 
-      <div ref={scrollRef} className="overflow-x-auto scrollbar-hide py-6">
+      <div ref={scrollRef} className="overflow-x-auto scrollbar-hide py-15">
         <div className="flex gap-6 min-w-max px-1">
           {services.map((item, i) => (
-            <div
+            <motion.div
               key={i}
-              className={`service-card transition-all duration-300 ease-in-out flex flex-col justify-between  p-8 w-80 rounded-3xl flex-shrink-0 shadow-md group bg-white hover:bg-black ${
-                centerIndex === i
-                  ? "scale-105 border-2 border-green-500 shadow-sm"
-                  : "scale-95" 
-              }`}
+              className={`service-card flex flex-col justify-between p-8 w-80 rounded-3xl flex-shrink-0 shadow-md group bg-white hover:bg-black transition-all duration-300`}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: i * 0.1 }}
+              style={{
+                scale: centerIndex === i ? 1.05 : 1,
+                border: centerIndex === i ? "2px solid #22c55e" : "none",
+              }}
             >
-            
               <h5 className="group-hover:text-white text-xl font-extrabold mb-4 transition">
                 {item.title}
               </h5>
 
-          
               <div className="mb-4">
                 <img
                   alt={item.title}
@@ -72,12 +77,10 @@ const Services = () => {
                 />
               </div>
 
-              {/* Description */}
-              <p className="text-base font-medium text-gray-700 group-hover:text-white   transition-all">
+              <p className="text-base font-medium text-gray-700 group-hover:text-white transition-all">
                 {item.description}
               </p>
 
-              {/* Learn More */}
               <a
                 href="#"
                 className="mt-auto inline-flex items-center gap-2 text-blue-600 group-hover:text-white font-semibold transition"
@@ -97,7 +100,7 @@ const Services = () => {
                   <path d="M9 6l6 6-6 6" />
                 </svg>
               </a>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 const phases = [
   {
@@ -35,21 +38,25 @@ const phases = [
 
 const Process = () => {
   return (
-    <section className="bg-white py-24 px-10 lg:px-20  shadow-lg">
+    <section className="bg-white py-24 px-10 lg:px-20 shadow-lg">
       <h2 className="text-4xl font-bold text-center mb-20 text-gray-900">
         Our <span className="text-green-500">Process</span>
       </h2>
 
       <div className="space-y-20">
         {phases.map((phase, index) => (
-          <div
+          <motion.div
             key={index}
+            initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
             className={`flex flex-col md:flex-row items-start md:items-center ${
               index % 2 === 1 ? "md:flex-row-reverse" : ""
             } gap-10 md:gap-16`}
           >
             {/* Image */}
-            <div className="w-full md:w-1/2">
+            <motion.div whileHover={{ scale: 1.03 }} transition={{ duration: 0.3 }} className="w-full md:w-1/2">
               <Image
                 src={phase.image}
                 alt={phase.title}
@@ -57,7 +64,7 @@ const Process = () => {
                 height={400}
                 className="rounded-xl object-cover w-full max-h-[350px] shadow-md"
               />
-            </div>
+            </motion.div>
 
             {/* Content */}
             <div className="w-full md:w-1/2 p-2">
@@ -71,7 +78,7 @@ const Process = () => {
                 {phase.description}
               </p>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </section>

@@ -1,13 +1,26 @@
-import React from 'react';
+"use client";
 
-export default function Aboutus() {
+import { motion } from "framer-motion";
+
+export default function AboutUs() {
   return (
-    <div className="bg-white py-16 px-8 lg:px-24">
+    <motion.section
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8 }}
+      className="bg-white py-16 px-8 lg:px-24"
+    >
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        
-      
-        <div>
-          <h2 className="text-4xl font-bold mb-4 text-green-600">About Us</h2>
+        {/* Text Content */}
+        <motion.div
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <h2 className="text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-purple-500">
+            About Us
+          </h2>
           <p className="text-gray-700 text-lg mb-6">
             We are a passionate group of students with extraordinary tech skills in web development,
             backend systems (like n8n), automation, and freelancing services.
@@ -23,18 +36,27 @@ export default function Aboutus() {
             <li>We constantly improve during testing to deliver the best product.</li>
             <li>We manage, maintain, and deliver with care.</li>
           </ul>
-          <div className="mt-6">
-            <button className="bg-gradient-to-r from-green-500 to-purple-500 text-white px-6 py-3 rounded-full shadow-md hover:scale-105 transition-transform duration-300">
+          <motion.div whileHover={{ scale: 1.05 }} transition={{ duration: 0.3 }} className="mt-6">
+            <button className="bg-gradient-to-r from-green-500 to-purple-500 text-white px-6 py-3 rounded-full shadow-lg hover:shadow-2xl transition-transform duration-300">
               Contact Us
             </button>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
-      
-        <div className="w-full h-80 bg-gray-200 rounded-lg shadow-md flex items-center justify-center">
-          <img src="./aboutus.jpg" alt="" />
-        </div>
+        {/* Image */}
+        <motion.div
+          initial={{ opacity: 0, x: 50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
+          className="w-full h-80 bg-gray-200 rounded-lg shadow-md flex items-center justify-center overflow-hidden"
+        >
+          <img
+            src="./aboutus.jpg"
+            alt="About Us"
+            className="w-full h-full object-cover rounded-lg"
+          />
+        </motion.div>
       </div>
-    </div>
+    </motion.section>
   );
 }
